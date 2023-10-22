@@ -66,7 +66,7 @@ class Hype:
                         filtered = server in self.config.filtered_instances
                         # Boost if not already boosted
                         already_boosted = status["reblogged"]
-                        if not already_boosted and not filtered:
+                        if not already_boosted and trending_status["language"] == "fi" and not filtered:
                             self.client.status_reblog(status)
                         self.log.info(
                             f"{instance.name}: {counter}/{len(trending_statuses)} {'ignore' if (already_boosted or filtered)  else 'boost'}"
